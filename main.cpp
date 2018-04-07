@@ -152,6 +152,8 @@ int Resolver(Puntero *puntero)
 
         case 3:
         {
+            if (total == 0)
+                total = 1;
             total = total * x;
             break;
         }

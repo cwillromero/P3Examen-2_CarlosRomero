@@ -6,12 +6,14 @@
 
 Pila *pila;
 Pila *pila2;
+Pila *pila3;
 int total = 0;
 int x;
 string cadena;
 void ImplementacionDelPushyTop(string);
 int ImplementacionDelPop(Puntero *);
 int Resolver(Puntero *);
+int ResolverA(Puntero *);
 
 int main()
 {
@@ -43,10 +45,35 @@ int main()
     //Implementación del is Empty
     cout << "Está vacío? " << pila->isEmpty() << endl;
 
-    //pila->ResolverOperacion(cadena);
+    cout << "Ingrese Una Operación Asignación: ";
+    cin >> cadena;
+    cout << endl;
+
+    pila = new Pila();
+    //Implementación del is Empty
+    cout << "Está vacío? " << pila->isEmpty() << endl;
+
+    cout << "Implementación del Push y el Top: " << endl;
+    ImplementacionDelPushyTop(cadena);
+
+    //Implementación del is Empty
+    cout << "Está vacío? " << pila->isEmpty() << endl
+         << endl;
+
+    pila3 = new Pila();
+    pila3->setPuntero(pila->getPuntero());
+    //Resolver Asignacion
+    // ResolverA(pila->getPuntero());
+
+    cout << "Implementación del Pop: " << endl;
+    ImplementacionDelPop(pila->getPuntero());
+
+    //Implementación del is Empty
+    cout << "Está vacío? " << pila->isEmpty() << endl;
 
     delete pila;
     delete pila2;
+    delete pila3;
 
     return 0;
 }
@@ -165,6 +192,89 @@ int Resolver(Puntero *puntero)
         }
         }
         puntero = pila2->Pop();
+        Resolver(puntero);
+    }
+}
+
+int ResolverA(Puntero *puntero)
+{
+    if (puntero->getSimbolo() == '=')
+    {
+        cout << "Operación Asignación: " << puntero->getAnterior()->getSimbolo() << cadena << " = " << total << endl
+             << endl;
+        return 0;
+    }
+    else
+    {
+        char simbolo = puntero->getSimbolo();
+        if (simbolo == '0')
+            x = 0;
+        if (simbolo == '1')
+            x = 1;
+        if (simbolo == '2')
+            x = 2;
+        if (simbolo == '3')
+            x = 3;
+        if (simbolo == '4')
+            x = 4;
+        if (simbolo == '5')
+            x = 5;
+        if (simbolo == '6')
+            x = 6;
+        if (simbolo == '7')
+            x = 7;
+        if (simbolo == '8')
+            x = 8;
+        if (simbolo == '9')
+            x = 9;
+
+        int operacion;
+        if (simbolo == '+')
+        {
+            operacion = 1;
+        }
+        else if (simbolo == '-')
+        {
+            operacion = 2;
+        }
+        else if (simbolo == '*')
+        {
+            operacion = 3;
+        }
+        else if (simbolo == '/')
+        {
+            operacion = 4;
+        }
+
+        switch (operacion)
+        {
+        case 1:
+        {
+            total = total + x;
+            break;
+        }
+
+        case 2:
+        {
+            total = total - x;
+            break;
+        }
+
+        case 3:
+        {
+            if (total == 0)
+                total = 1;
+            total = total * x;
+            break;
+        }
+
+        case 4:
+        {
+            total = total / x;
+            break;
+        }
+        }
+        puntero = pila3->Pop();
         Resolver(puntero);
     }
 }

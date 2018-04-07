@@ -1,6 +1,7 @@
 #include "Pila.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -59,24 +60,49 @@ string Pila::isEmpty()
     }
 }
 
-void Pila::ResolverOperacion(string cadena)
+/*void Pila::ResolverOperacion(string cadena)
 {
+    double acum = 0;
+    int x = 0;
     for (int i = 0; i < cadena.size(); i++)
     {
-        if ((cadena.at(i) != '1') && (cadena.at(i) != '2') &&
-            (cadena.at(i) != '3') && (cadena.at(i) != '4') &&
-            (cadena.at(i) != '5') && (cadena.at(i) != '6') &&
-            (cadena.at(i) != '7') && (cadena.at(i) != '8') &&
-            (cadena.at(i) != '9') && (cadena.at(i) != '0'))
+        if (cadena.at(i) == '+')
+            acum = acum + x;
+        if (cadena.at(i) == '-')
+            acum = acum - x;
+        if (cadena.at(i) == '*')
         {
-            cout << "dsg" << endl;
+            if (acum == 0)
+                acum = 1;
+            acum = acum * x;
         }
-        else
-        {
-            cout << "sa";
-        }
+        if (cadena.at(i) == '/')
+            acum = acum / x;
+
+        if (cadena.at(i) == '0')
+            x = 0;
+        if (cadena.at(i) == '1')
+            x = 1;
+        if (cadena.at(i) == '2')
+            x = 2;
+        if (cadena.at(i) == '3')
+            x = 3;
+        if (cadena.at(i) == '4')
+            x = 4;
+        if (cadena.at(i) == '5')
+            x = 5;
+        if (cadena.at(i) == '6')
+            x = 6;
+        if (cadena.at(i) == '7')
+            x = 7;
+        if (cadena.at(i) == '8')
+            x = 8;
+        if (cadena.at(i) == '9')
+            x = 9;
     }
 }
+cout << "Resultado de la Operación: " << acum << endl;
+}*/
 
 Pila::~Pila()
 {

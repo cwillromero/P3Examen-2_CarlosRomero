@@ -24,7 +24,7 @@ public:
   Puntero *Pop();
   Puntero *Top();
   string isEmpty();
-  void ResolverOperacion(string);
+  //void ResolverOperacion(string);
   ~Pila();
 };
 #endif

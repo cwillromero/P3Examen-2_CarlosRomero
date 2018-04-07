@@ -88,10 +88,10 @@ int ImplementacionDelPop(Puntero *puntero)
 
 int Resolver(Puntero *puntero)
 {
-
     if (puntero == NULL)
     {
-        cout << "Operación: " << cadena << " = " << total << endl;
+        cout << "Operación: " << cadena << " = " << total << endl
+             << endl;
         return 0;
     }
     else
